@@ -13,7 +13,7 @@
             <div class="search-form">
                 <h1>Only Travel APP You Need</h1>
     
-                <form>
+                <form onsubmit="return Client.handleSubmit(event)">
                     <div class="city">
                         <label>Where</label>
                         <input type="text" placeholder="City" name="city"  id="city">
@@ -23,7 +23,7 @@
                         <input type="date"  name="date" id="date">
                     </div>
                     <div class="submit">
-                        <input type="submit" class="btn" value="Search">
+                        <input type="submit" class="btn" value="Search" onclick="return Client.handleSubmit(event)">
                     </div>
                 </form>
             </div>
