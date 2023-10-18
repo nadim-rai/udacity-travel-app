@@ -34,7 +34,7 @@ form .date{
     flex-direction: column;
 }
 
-.search-form input[type="text"],
+#city,
 .search-form input[type="date"]{
     padding: 15px;
     border: 1px solid #e1e1e1;
@@ -52,13 +52,14 @@ form .submit{
     background-color: #ff5a5f;
     border-radius: 5px;
     border:none;
+    cursor: pointer;
    
 }
 @media(min-width: 768px){
    .search-form{
     width: 60%;
     }
-    .search-form input[type="text"],
+    #city,
     .search-form input[type="date"]{
         font-size: 18px;
     }
