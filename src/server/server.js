@@ -24,7 +24,8 @@ app.post("/location", async (req,res) =>{
     console.log(req.body);
     const {city} = req.body;
     const Location = await location(city, username);
-    console.log(Location)
+    console.log(Location);
+    res.send(Location);
 })
 
 
