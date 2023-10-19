@@ -1,6 +1,7 @@
 import { tripCity } from "./tripCity";
 import { tripDays } from "./tripDays";
 import { tripWeather } from "./tripWeather";
+import { tripPicture } from "./tripPicture";
 
 async function handleSubmit(event){
     event.preventDefault();
@@ -13,6 +14,8 @@ async function handleSubmit(event){
     const Days = tripDays(date);
 
     const Weather = await tripWeather(lng, lat, Days);
+
+    const Picture = await tripPicture(name);
 }
 
 export { handleSubmit }

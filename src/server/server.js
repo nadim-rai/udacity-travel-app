@@ -12,9 +12,11 @@ app.use(express.static('dist'))
 
 const username = process.env.USERNAME;
 const weather_key = process.env.WEATHER_KEY;
+const pixabay_key = process.env.PIX_KEY;
 
 const { location } = require('./location');
 const { weather } = require('./weather');
+const { picture } = require('./picture');
 
 console.log(__dirname)
 
@@ -38,6 +40,12 @@ app.post("/weather",  async (req,res) => {
     res.send(Weather);
  })
  
+ app.post("/picture", async (req,res) => {
+    const {city_name} = req.body
+    const Picture = await picture(city_name, pixabay_key)
+    console.log(Picture)
+    res.send(Picture)
+  })
 
 
 app.listen(3000, function () {
