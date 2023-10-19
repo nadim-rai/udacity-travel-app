@@ -11,8 +11,10 @@ dotenv.config();
 app.use(express.static('dist'))
 
 const username = process.env.USERNAME;
+const weather_key = process.env.WEATHER_KEY;
 
-const {location} = require('./location');
+const { location } = require('./location');
+const { weather } = require('./weather');
 
 console.log(__dirname)
 
@@ -27,6 +29,15 @@ app.post("/location", async (req,res) =>{
     console.log(Location);
     res.send(Location);
 })
+
+app.post("/weather",  async (req,res) => {
+    const {lng, lat, days} = req.body
+    console.log(lng, lat, days)
+    const Weather = await weather(lat, lng, days, weather_key);
+    console.log(Weather)
+    res.send(Weather);
+ })
+ 
 
 
 app.listen(3000, function () {
