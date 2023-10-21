@@ -53,8 +53,18 @@ form .submit{
     border-radius: 5px;
     border:none;
     cursor: pointer;
-   
+    transition: all .3s;
 }
+.submit .btn:hover{
+    background-color: #f93e45;
+    transform: scale(1.07);
+}
+.submit .btn:active{
+    background-color: #f93e45;
+    box-shadow: 0 9px rgba(232, 109, 109, 0.75);
+    transform: translateY(3px);
+}
+
 @media(min-width: 768px){
    .search-form{
     width: 60%;
