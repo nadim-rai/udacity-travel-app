@@ -1,0 +1,44 @@
+$city_background-color: #8edcef;
+
+.travel-container {
+	margin: 3rem 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+.travel-detail {
+	margin: 1rem;
+	border: 2px solid #000;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+}
+.travel-pic {
+	img {
+		max-width: 100%;
+		border-top-right-radius: 22px;
+		border-top-left-radius: 22px;
+	}
+}
+.travel-content {
+	padding: 1rem;
+}
+.city-name {
+	text-align: center;
+	background-color: $city_background-color;
+}
+@media (min-width: 586px) {
+	.travel-section {
+		max-width: 1300px;
+		margin: 0 auto;
+	}
+	.travel-detail {
+		margin: 0.5rem;
+		flex: 0 0 calc(50% - 1rem);
+	}
+}
+@media (min-width: 768px) {
+	.travel-detail {
+		flex: 0 0 calc(33.3% - 1rem);
+	}
+}
