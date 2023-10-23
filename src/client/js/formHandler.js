@@ -20,6 +20,13 @@ async function handleSubmit(event){
 
     console.log("weather form",Weather, Picture, Days, Location, date)
     travelUI(Days, Weather, Picture, Location, date);
+
+    // scroll to the bottom after updating UI
+    autoScroll()
+    
 }
 
+function autoScroll(){
+    window.scrollTo(0, document.querySelector(".travel-section").scrollHeight + 2550);
+}
 export { handleSubmit }

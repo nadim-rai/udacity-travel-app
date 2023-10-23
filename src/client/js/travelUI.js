@@ -70,4 +70,5 @@ const travelUI = (Days, Weather, Picture, Location, Date) => {
 
   };
 
+
   export { travelUI }
