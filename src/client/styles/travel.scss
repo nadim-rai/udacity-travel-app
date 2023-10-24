@@ -1,10 +1,14 @@
 $city_background-color: #8edcef;
+$btn_background-color: #ff5a5f;
+$background-color_1: #fff;
+$background-color_2: #555555;
 
 .travel-container {
 	margin: 3rem 0;
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .travel-detail {
 	margin: 1rem;
 	border: 2px solid #000;
@@ -13,6 +17,7 @@ $city_background-color: #8edcef;
 	border-top-right-radius: 25px;
 	border-top-left-radius: 25px;
 }
+
 .travel-pic {
 	img {
 		max-width: 100%;
@@ -20,6 +25,7 @@ $city_background-color: #8edcef;
 		border-top-left-radius: 22px;
 	}
 }
+
 .travel-content {
 	padding: 1rem;
 }
@@ -27,6 +33,22 @@ $city_background-color: #8edcef;
 	text-align: center;
 	background-color: $city_background-color;
 }
+
+.del_btn {
+	width: 100%;
+	padding: 6px;
+	color: $background-color_1;
+	background-color: $background-color_2;
+	border: none;
+	&:hover {
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $background-color_2;
+		background-color: $btn_background-color;
+		cursor: pointer;
+	}
+}
+
 @media (min-width: 586px) {
 	.travel-section {
 		max-width: 1300px;
