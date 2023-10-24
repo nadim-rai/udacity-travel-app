@@ -1,4 +1,5 @@
 import { dateFormat } from "./utility/dateFormat";
+import { generateID } from "./utility/generateID";
 
 let travelContainer = document.querySelector('.travel-container');
 
@@ -10,9 +11,13 @@ const travelUI = (Days, Weather, Picture, Location, Date) => {
     const { day, month, dayNumber, year} = travelDate;
     let TravelDateFormat = `${day} ${month} ${dayNumber}, ${year}`;
 
+    //Unique ID
+    let unique_id = generateID();
+
     //Create Travel Detail Div
     let travel_detail_div = document.createElement("div");
     travel_detail_div.setAttribute('class', 'travel-detail');
+    travel_detail_div.setAttribute('id',unique_id);
 
 
     //Create Trave Picture Div
@@ -56,6 +61,10 @@ const travelUI = (Days, Weather, Picture, Location, Date) => {
     let min_temp_elem = document.createElement('p');
     min_temp_elem.setAttribute('class', 'min-temp');
     min_temp_elem.innerHTML = Days > 7 ? `Min-Temp: ${Weather.app_min_temp}&degC` : "";
+
+    let del_btn = document.createElement('button');
+    del_btn.setAttribute('class','del_btn');
+    del_btn.textContent = 'Delete';
    
     travel_content_div.append(h2_elem);
     travel_content_div.append(h3_elem);
@@ -64,9 +73,22 @@ const travelUI = (Days, Weather, Picture, Location, Date) => {
     travel_content_div.append(temp_elem);
     travel_content_div.append(max_temp_elem);
     travel_content_div.append(min_temp_elem);
+    travel_content_div.append(del_btn);
 
     travel_detail_div.append(travel_content_div);
     travelContainer.append(travel_detail_div);
+
+
+    // Delete Travel Detail By Clicking Delte Button
+    let del_btn_class = document.querySelectorAll('.del_btn');
+    del_btn_class.forEach(function (ele) {
+      ele.addEventListener('click', function (e) {
+          e.preventDefault();
+         let travel_content_el = e.target.closest('.travel-content');
+         let travel_detail_el = travel_content_el.parentNode;
+         travel_detail_el.remove();
+      })
+  })
 
   };
 

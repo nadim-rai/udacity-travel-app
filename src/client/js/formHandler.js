@@ -29,4 +29,5 @@ async function handleSubmit(event){
 function autoScroll(){
     window.scrollTo(0, document.querySelector(".travel-section").scrollHeight + 2550);
 }
+
 export { handleSubmit }

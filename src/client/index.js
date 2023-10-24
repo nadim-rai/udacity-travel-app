@@ -5,5 +5,5 @@ import './styles/form.scss';
 import './styles/travel.scss';
 
 export{
-    handleSubmit
+    handleSubmit,
 }
