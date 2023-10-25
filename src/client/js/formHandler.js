@@ -9,17 +9,30 @@ async function handleSubmit(event){
 
     let city = document.getElementById('city').value
     const Location = await tripCity(city);
-    const { name,lat,lng } = Location
 
-    let date = document.querySelector("#date").value;
-    const Days = tripDays(date);
+    if(Location && Location.error){
+        document.querySelector(".city_error").innerHTML = "City Not Found"
+        return;
+    }else if(Location && !Location.error){
+        document.querySelector(".city_error").innerHTML = "";
+        const { name,lat,lng } = Location;
 
-    const Weather = await tripWeather(lng, lat, Days);
+        let date = document.querySelector("#date").value;
+        if(!date){
+            document.querySelector(".date_error").innerHTML = 'Please Select Date';
+            return;
+        }else if (date){
+            document.querySelector(".date_error").innerHTML = '';
+            const Days = tripDays(date);
+            const Weather = await tripWeather(lng, lat, Days);
+            const Picture = await tripPicture(name);
+            travelUI(Days, Weather, Picture, Location, date);
+        }
+    }
+ 
 
-    const Picture = await tripPicture(name);
-
-    console.log("weather form",Weather, Picture, Days, Location, date)
-    travelUI(Days, Weather, Picture, Location, date);
+    // console.log("weather form",Weather, Picture, Days, Location, date)
+    
 
     // scroll to the bottom after updating UI
     autoScroll()
