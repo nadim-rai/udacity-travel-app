@@ -3,9 +3,14 @@ import { tripDays } from "./tripDays";
 import { tripWeather } from "./tripWeather";
 import { tripPicture } from "./tripPicture";
 import { travelUI } from './travelUI';
+import { inputChecker } from "./utility/inputChecker";
 
 async function handleSubmit(event){
     event.preventDefault();
+
+    if(!inputChecker()){
+        return;
+    };
 
     let city = document.getElementById('city').value
     const Location = await tripCity(city);
@@ -24,8 +29,15 @@ async function handleSubmit(event){
         }else if (date){
             document.querySelector(".date_error").innerHTML = '';
             const Days = tripDays(date);
+
             const Weather = await tripWeather(lng, lat, Days);
+            if(Weather && Weather.error){
+                document.querySelector(".date_error").innerHTML = 'Start Date Cannot Be Earlier Than Today';
+                return;
+            }
+
             const Picture = await tripPicture(name);
+
             travelUI(Days, Weather, Picture, Location, date);
         }
     }
