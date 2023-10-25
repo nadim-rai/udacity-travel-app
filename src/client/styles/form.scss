@@ -74,6 +74,12 @@ form {
 		}
 	}
 }
+/*** style error display **/
+.city_error, .date_error {
+	margin-left: 15px;
+	font-style: italic;
+	color: $background-color_2;
+}
 @media (min-width: 768px) {
 	.search-form {
 		width: 60%;
