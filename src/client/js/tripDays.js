@@ -10,6 +10,6 @@ const tripDays = (date) => {
     return day_difference;
   };
 
-export{ tripDays }
+  module.exports = { tripDays }
 
 //https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
