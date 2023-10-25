@@ -25,25 +25,20 @@ app.get('/', function (req, res) {
 })
 
 app.post("/location", async (req,res) =>{
-    console.log(req.body);
     const {city} = req.body;
     const Location = await location(city, username);
-    console.log(Location);
     res.send(Location);
 })
 
 app.post("/weather",  async (req,res) => {
     const {lng, lat, days} = req.body
-    console.log(lng, lat, days)
     const Weather = await weather(lat, lng, days, weather_key);
-    console.log(Weather)
     res.send(Weather);
  })
  
  app.post("/picture", async (req,res) => {
     const {city_name} = req.body
     const Picture = await picture(city_name, pixabay_key)
-    console.log(Picture)
     res.send(Picture)
   })
 

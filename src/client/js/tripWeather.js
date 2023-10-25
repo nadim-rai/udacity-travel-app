@@ -6,7 +6,6 @@ const tripWeather = async (lng, lat, days) => {
       lat,
       days,
     });
-    console.log("weather", data)
     return data;
   };
 

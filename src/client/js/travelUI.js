@@ -4,7 +4,6 @@ import { generateID } from "./utility/generateID";
 let travelContainer = document.querySelector('.travel-container');
 
 const travelUI = (Days, Weather, Picture, Location, Date) => {
-    console.log("weather", Weather);
 
     //Format Date
     const travelDate = dateFormat(Date);
